@@ -26,6 +26,7 @@ mkdir ./res/export/audios/extra
 mkdir ./res/export/audios/story
 mkdir ./res/export/videos/extra
 mkdir ./res/export/videos/titles
+mkdir ./res/export/videos/story
 mkdir ./res/export/videos/song_select
 mkdir ./res/export/images/characters
 
@@ -38,6 +39,9 @@ echo "Unziped APK."
 unzip -q "./raw/$1.obb" -d ./res/obb
 echo "Unziped OBB."
 
+unzip -q "./raw/$1.patch.obb" -d ./res/vid
+echo "Unziped Patch OBB."
+
 # move unity
 mv ./res/apk/assets/bin/Data/* ./res/unitydata
 mv ./res/obb/assets/bin/Data/* ./res/unitydata
@@ -46,25 +50,29 @@ echo "Migrated Unity."
 # move obb
 mv ./res/obb/assets/AssetBundles/* ./res/unitybundles
 
-# obb.raw
-rm -rf ./res/obb/assets/RawAssets/Click*.mp4
+mv ./res/vid/assets/RawAssets/EndPlay/*     ./res/export/videos
+mv ./res/vid/assets/RawAssets/OASystem/*     ./res/export/videos
+mv ./res/vid/assets/RawAssets/Story/*    ./res/export/videos
+mv ./res/vid/assets/RawAssets/System/*    ./res/export/videos
+mv ./res/vid/assets/RawAssets/TrueEnd/*     ./res/export/videos
 
-if [ -d "./res/obb/assets/bin/" ]; then
-  rm -rf ./res/obb/assets/RawAssets/GamePlayBGVideo/FinalBossStage.mp4
-  mv ./res/obb/assets/RawAssets/GamePlayBGVideo/*.mp4 ./res/export/videos
-  rm -rf ./res/obb/assets/RawAssets/GamePlayBGVideo
-fi
+rm -rf ./res/vid/assets/RawAssets/EndPlay
+rm -rf ./res/vid/assets/RawAssets/OASystem
+rm -rf ./res/vid/assets/RawAssets/Story
+rm -rf ./res/vid/assets/RawAssets/System
+rm -rf ./res/vid/assets/RawAssets/TrueEnd
 
-mv ./res/obb/assets/RawAssets/*_ending*.mp4 ./res/export/videos
-mv ./res/obb/assets/RawAssets/*Cutscene.mp4 ./res/export/videos
-mv ./res/obb/assets/RawAssets/eos*.mp4      ./res/export/videos
+mv ./res/vid/assets/RawAssets/Title/*     ./res/export/videos/titles
+mv ./res/vid/assets/RawAssets/SongSelect/*     ./res/export/videos/song_select
 
-mv ./res/obb/assets/RawAssets/*        ./res/export/videos
-mv ./res/obb/assets/Titles/*           ./res/export/videos/titles
-mv ./res/obb/assets/*_song_select.mp4  ./res/export/videos/song_select
-mv ./res/obb/assets/*.mp4              ./res/export/videos/extra
+rm -rf ./res/vid/assets/RawAssets/Title
+rm -rf ./res/vid/assets/RawAssets/SongSelect
+
+cp ./res/export/videos/*.mp4 ./res/export/videos/story
+
+mv ./res/vid/assets/RawAssets/*        ./res/export/videos
 echo "Migrated OBB."
 
 # clean source
-rm -rf ./res/apk ./res/obb
+rm -rf ./res/apk ./res/obb ./res/vid
 echo "Finished."

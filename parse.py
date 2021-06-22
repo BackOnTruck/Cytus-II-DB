@@ -49,7 +49,7 @@ def do_attachments(kind):
 
     ifolder = './res/export/assets/game/%s/bundleassets/attachments' % kind
     ofolder = './res/converted/images/%sfiles' % info[1]
-    
+
     for i in os.listdir(ifolder):
         # check cache
         if i in cache:
@@ -71,7 +71,7 @@ def do_attachments(kind):
         im.convert('RGB').save('%s/%s.jpg' % (ofolder, i))
         # add cache
         cache.append(i)
-    
+
     saveCache('image', info[1], cache)
     print("Finished Attachments.")
 
@@ -215,7 +215,7 @@ def trimContent(content):
 def getTime(name):
     time = 0
     name = name.replace("?", "0").replace("X", "0").replace("(","").replace(")","")
-    
+
     r = re.search(r"_(\d{3})_(\d{1,2})_(\d{1,2})(?:_(\d{1,2}))?$", name)
     if r:
         num = r.group(4) if (r.group(4) and r.group(4).isdigit()) else "0"
@@ -332,6 +332,7 @@ def loadIM():
 def loadOS():
     global vcodes
     res    = getJson(BASEDATA+"/cutscenedata/cutscene_data.txt")
+    if res == []: res = {}
     oslist = getJson("./res/converted/data/oslist.json")
     ostime = []
     if oslist == [] or int(VERSION.split(".")[0]) > 2:
