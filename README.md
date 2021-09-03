@@ -2,15 +2,13 @@
 
 Knowledge database maintained by A.R.C. 
 
-Cytus II DB currently supports Cytus II version 4.0 (Note that there haven't been any story updates since 4.1, and OA support hasn't been added.)
+Cytus II DB currently supports Cytus II version 4.0 from Google Play (Note that there haven't been any story updates since 4.1, and OA support hasn't been added.)
 
 Donate: [爱发电](https://afdian.net/@dtsdao) / [Patreon](https://www.patreon.com/dtsdao).
 
 ## Requirements
 
-This program can be executed on Linux / Windows / macOS.
-
-You must have at least 5 GB free space.
+This program can be executed on Linux. To use it on Windows, simply install WSL (Windows Subsystem for Linux).
 
 These softwares are required:
 
@@ -28,27 +26,19 @@ Compiling is to translate the original files to readable datasheets.
 
 Follow the instruction to compile it.
 
-### Google Play Version
-
 1. Clone this project with `git`.
 2. Put your `.obb` file into `./raw` and rename to `{version}.obb`
 3. Put your `.apk` file into `./raw` and rename to `{version}.apk`
 4. Execute `./asset.sh {version}`
 5. Use AssetStudio to export files as below
-6. Execute `./build.sh {version}`
+6. Execute `./build.sh {version} dist`
 
-If you want to generate your website at current version, just add `dist` at the 6th step.
+## Usage
 
-### Longyuan Version / 龙渊版
+Type the following commands in the shell and then you can view the database at [localhost:8080](http://localhost:8080).
 
-**注意：龙渊对某些版本进行了加密，本自动化处理程序将无法支持，请自行解决资源提取问题**
-
-1. 用 `git` 克隆本项目
-2. 将游戏资源导出至计算机中（未加密版本可使用 `./china.sh {version}` ）
-3. 按照下方说明使用 AssetStudio 导出文件
-4. 运行 `./build.sh {version}`
-
-如果希望生成这个版本的发布版，请在第4步后添加 `dist`。
+1. `cd web`
+2. `npm run serve`
 
 ## Clean
 
