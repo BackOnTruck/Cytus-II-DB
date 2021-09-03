@@ -1,6 +1,8 @@
 # Cytus II DB
 
-Knowledge database maintained by A.R.C.
+Knowledge database maintained by A.R.C. 
+
+Cytus II DB currently supports Cytus II version 4.0 (Note that there haven't been any story updates since 4.1, and OA support hasn't been added.)
 
 Donate: [爱发电](https://afdian.net/@dtsdao) / [Patreon](https://www.patreon.com/dtsdao).
 
