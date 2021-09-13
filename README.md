@@ -1,10 +1,8 @@
 # Cytus II DB
 
-Knowledge database maintained by A.R.C. 
+A tool to view Cytus II iM / OS / Backup DB files, currently supporting version 4.0 from Google Play.
 
-Cytus II DB currently supports Cytus II version 4.0 from Google Play (Note that there haven't been any story updates since 4.1, and OA support hasn't been added.)
-
-Donate: [爱发电](https://afdian.net/@dtsdao) / [Patreon](https://www.patreon.com/dtsdao).
+Note that OA support hasn't been added.
 
 ## Requirements
 
@@ -22,9 +20,7 @@ These softwares are required:
 
 ## Compile
 
-Compiling is to translate the original files to readable datasheets.
-
-Follow the instruction to compile it.
+It is required to compile the game files before browsing the database. Please follow the instructions below.
 
 1. Clone this project with `git`.
 2. Put your `.obb` file into `./raw` and rename to `{version}.obb`
@@ -35,10 +31,9 @@ Follow the instruction to compile it.
 
 ## Usage
 
-Type the following commands in the shell and then you can view the database at [localhost:8080](http://localhost:8080).
+Type `npm run serve` in the `./web` folder in the terminal and then you can view the database at [localhost:8080](http://localhost:8080).
 
-1. `cd web`
-2. `npm run serve`
+If you don't know Ivy's passcode, it's 2501004, referring to her Serial Number OPCI_2501_IV.
 
 ## Clean
 
@@ -70,6 +65,6 @@ Make sure you have added your ssh keys to your Github account.
 
 To deploy, edit `./deploy.sh` and execute it.
 
-## Announcement
+## Notice
 
 **None of the repo, the tool, nor the repo owner is affiliated with, or sponsored or authorized by, Rayark Inc. or its affiliates.**
