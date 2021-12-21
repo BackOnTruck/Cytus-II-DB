@@ -23,7 +23,7 @@ These softwares are required:
 It is required to compile the game files before browsing the database. Please follow the instructions below.
 
 1. Clone this project with `git`.
-2. Put your `.obb` file into `./raw` and rename to `{version}.obb`
+2. Put your `.obb` file into `./raw` and rename to `{version}.obb` and `{version}.patch.obb`
 3. Put your `.apk` file into `./raw` and rename to `{version}.apk`
 4. Execute `./asset.sh {version}`
 5. Use AssetStudio to export files as below
